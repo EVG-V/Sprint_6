@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import java.util.List;
+
+import static junit.framework.TestCase.fail;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -42,9 +44,10 @@ public class LionTest {
     @Test
     public void doesHaveManeThrowsExceptionTest() {
         try {
-            Lion lion = new Lion("hgjhjvh", feline);
+            Lion lion = new Lion("jlkjlj", feline);
+            fail("При запуске негативного теста использованы неверные входные параметры");
         } catch (Exception exception) {
-            String textException = "Используйте допустимые значения пола животного - самей или самка"; // в коде задания опечатка
+            String textException = "Используйте допустимые значения пола животного - самец или самка"; // в коде задания опечатка
             Assert.assertEquals(textException, exception.getMessage());
         }
     }
